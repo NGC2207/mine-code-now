@@ -22,27 +22,17 @@ import { Snippet } from "@prisma/client";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
-const colors = {
-  green: "bg-green-50",
-  gray: "bg-gray-50",
-  red: "bg-red-50",
-  yellow: "bg-yellow-50",
-  purple: "bg-purple-50",
-  blue: "bg-blue-50",
-  orange: "bg-orange-50",
-} as const;
-
 const languageIcons = {
-  c: { icon: COriginal, color: colors.green },
-  cpp: { icon: CplusplusOriginal, color: colors.gray },
-  java: { icon: JavaOriginal, color: colors.red },
-  python: { icon: PythonOriginal, color: colors.yellow },
-  javascript: { icon: JavascriptOriginal, color: colors.yellow },
-  csharp: { icon: CsharpOriginal, color: colors.purple },
-  go: { icon: GoOriginal, color: colors.blue },
-  ruby: { icon: RubyOriginal, color: colors.red },
-  swift: { icon: SwiftOriginal, color: colors.orange },
-  kotlin: { icon: KotlinOriginal, color: colors.blue },
+  c: { icon: COriginal },
+  cpp: { icon: CplusplusOriginal },
+  java: { icon: JavaOriginal },
+  python: { icon: PythonOriginal },
+  javascript: { icon: JavascriptOriginal },
+  csharp: { icon: CsharpOriginal },
+  go: { icon: GoOriginal },
+  ruby: { icon: RubyOriginal },
+  swift: { icon: SwiftOriginal },
+  kotlin: { icon: KotlinOriginal },
 } as const;
 
 type Language = keyof typeof languageIcons;
@@ -63,11 +53,8 @@ export function SnippetCard({
 
   const renderLanguageBadge = () => (
     <Badge
-      variant="outline"
-      className={cn(
-        languageInfo?.color,
-        "rounded-xl flex items-center justify-between whitespace-nowrap h-6"
-      )}
+      variant="secondary"
+      className="rounded-xl flex items-center justify-between whitespace-nowrap h-6"
     >
       <div className="flex items-center gap-1">
         {languageInfo?.icon && <languageInfo.icon />}
