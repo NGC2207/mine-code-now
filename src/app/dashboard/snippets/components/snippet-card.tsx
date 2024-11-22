@@ -20,7 +20,7 @@ import {
 import { cn } from "@/lib/utils";
 import { Snippet } from "@prisma/client";
 import { Badge } from "@/components/ui/badge";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { SnippetShowForm } from "./snippet-show-form";
 
 const languageIcons = {
   c: { icon: COriginal },
@@ -54,7 +54,7 @@ export function SnippetCard({
   const renderLanguageBadge = () => (
     <Badge
       variant="secondary"
-      className="rounded-xl flex items-center justify-between whitespace-nowrap h-6"
+      className="rounded-xl flex items-center justify-between whitespace-nowrap h-6 px-0"
     >
       <div className="flex items-center gap-1">
         {languageInfo?.icon && <languageInfo.icon />}
@@ -71,19 +71,15 @@ export function SnippetCard({
   );
 
   return (
-    <Card className={cn("flex flex-col", className)} {...props}>
-      <CardHeader className="flex flex-col flex-none p-0">
-        <CardTitle className="h-8 p-2 pl-4 flex items-center justify-between bg-muted rounded-t-xl">
+    <Card className={cn("flex flex-col h-72 w-auto", className)} {...props}>
+      <CardHeader className="flex flex-none p-0">
+        <CardTitle className="h-8 px-4 py-2 flex items-center justify-between bg-muted rounded-t-xl">
           <span className="truncate">{snippet.title}</span>
           {renderLanguageBadge()}
         </CardTitle>
       </CardHeader>
       <CardContent className="flex-grow overflow-hidden p-0">
-        <ScrollArea className="h-full border-y">
-          <pre className="p-2 rounded-md overflow-auto whitespace-pre">
-            <code>{snippet.code}</code>
-          </pre>
-        </ScrollArea>
+        <SnippetShowForm snippet={snippet} />
       </CardContent>
       <CardFooter className="flex-none h-6 p-2 pl-4 mb-0 bg-muted rounded-b-xl">
         {renderTimestamp()}
