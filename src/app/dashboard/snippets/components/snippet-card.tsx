@@ -1,14 +1,14 @@
 import {
+  VimOriginal,
+  COriginal,
+  CplusplusOriginal,
   CsharpOriginal,
+  GoOriginal,
   JavaOriginal,
-  PythonOriginal,
   JavascriptOriginal,
   KotlinOriginal,
-  COriginal,
-  GoOriginal,
-  RubyOriginal,
-  SwiftOriginal,
-  CplusplusOriginal,
+  PythonOriginal,
+  RustOriginal,
 } from "devicons-react";
 import {
   Card,
@@ -23,16 +23,16 @@ import { Badge } from "@/components/ui/badge";
 import { SnippetShowForm } from "./snippet-show-form";
 
 const languageIcons = {
+  plaintext: { icon: VimOriginal },
   c: { icon: COriginal },
   cpp: { icon: CplusplusOriginal },
-  java: { icon: JavaOriginal },
-  python: { icon: PythonOriginal },
-  javascript: { icon: JavascriptOriginal },
   csharp: { icon: CsharpOriginal },
   go: { icon: GoOriginal },
-  ruby: { icon: RubyOriginal },
-  swift: { icon: SwiftOriginal },
+  java: { icon: JavaOriginal },
+  javascript: { icon: JavascriptOriginal },
   kotlin: { icon: KotlinOriginal },
+  python: { icon: PythonOriginal },
+  rust: { icon: RustOriginal },
 } as const;
 
 type Language = keyof typeof languageIcons;
