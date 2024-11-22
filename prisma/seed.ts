@@ -47,11 +47,11 @@ print(greet("Prisma"))`,
         code: `#include <stdio.h>
 
 void greet(char* name) {
-    printf("Hello, %s!\n", name);
+    printf("Hello, %s!", name);
 }
 
 int main() {
-    printf("Hello, World!\n");
+    printf("Hello, World!");
     greet("Prisma");
     return 0;
 }`,
@@ -95,7 +95,7 @@ class HelloWorld {
 import "fmt"
 
 func greet(name string) {
-    fmt.Printf("Hello, %s!\n", name)
+    fmt.Printf("Hello, %s!", name)
 }
 
 func main() {
